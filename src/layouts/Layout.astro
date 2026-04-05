@@ -45,23 +45,27 @@ const { title, currentPage = '' } = Astro.props;
     </nav>
 
     <script>
-      const burger = document.querySelector('.burger') as HTMLButtonElement;
-      const navLinks = document.querySelector('.nav-links') as HTMLElement;
+      function initBurgerMenu() {
+        const burger = document.querySelector('.burger') as HTMLButtonElement;
+        const navLinks = document.querySelector('.nav-links') as HTMLElement;
 
-      burger?.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('open');
-        burger.setAttribute('aria-expanded', String(isOpen));
-        burger.classList.toggle('open', isOpen);
-      });
-
-      // Close menu when a nav link is clicked
-      navLinks?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('open');
-          burger?.setAttribute('aria-expanded', 'false');
-          burger?.classList.remove('open');
+        burger?.addEventListener('click', () => {
+          const isOpen = navLinks.classList.toggle('open');
+          burger.setAttribute('aria-expanded', String(isOpen));
+          burger.classList.toggle('open', isOpen);
         });
-      });
+
+        // Close menu when a nav link is clicked
+        navLinks?.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            burger?.setAttribute('aria-expanded', 'false');
+            burger?.classList.remove('open');
+          });
+        });
+      }
+
+      document.addEventListener('astro:page-load', initBurgerMenu);
     </script>
 
     <main>
