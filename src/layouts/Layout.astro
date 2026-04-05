@@ -21,7 +21,12 @@ const { title, currentPage = '' } = Astro.props;
     <nav>
       <div class="nav-inner">
         <a href="/" class="nav-name">Chan Nirak Choun</a>
-        <ul class="nav-links">
+        <button class="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
           <li><a href="/" class={currentPage === 'home' ? 'active' : ''}>Home</a></li>
           <li><a href="/projects" class={currentPage === 'projects' ? 'active' : ''}>Projects</a></li>
           <li><a href="/publications" class={currentPage === 'publications' ? 'active' : ''}>Publications</a></li>
@@ -31,6 +36,26 @@ const { title, currentPage = '' } = Astro.props;
         </ul>
       </div>
     </nav>
+
+    <script>
+      const burger = document.querySelector('.burger') as HTMLButtonElement;
+      const navLinks = document.querySelector('.nav-links') as HTMLElement;
+
+      burger?.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        burger.setAttribute('aria-expanded', String(isOpen));
+        burger.classList.toggle('open', isOpen);
+      });
+
+      // Close menu when a nav link is clicked
+      navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          burger?.setAttribute('aria-expanded', 'false');
+          burger?.classList.remove('open');
+        });
+      });
+    </script>
 
     <main>
       <slot />
