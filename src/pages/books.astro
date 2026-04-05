@@ -1,5 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    heading: "Data Structures & Algorithms",
+    books: [
+      {
+        title: "The Algorithm Design Manual",
+        author: "Steven S. Skiena",
+        cover: "/images/books/algorithm-design-manual.jpg",
+      },
+    ],
+  },
+  {
+    heading: "Computer Architecture",
+    books: [
+      {
+        title: "Computer Systems: A Programmer's Perspective",
+        author: "Bryant & O'Hallaron",
+        cover: "/images/books/cs-programmers-perspective.jpg",
+      },
+    ],
+  },
+  {
+    heading: "Compilers",
+    books: [
+      {
+        title: "Crafting Interpreters",
+        author: "Robert Nystrom",
+        cover: "/images/books/crafting-interpreters.jpg",
+      },
+      {
+        title: "Engineering a Compiler",
+        author: "Keith D. Cooper & Linda Torczon",
+        cover: "/images/books/engineering-a-compiler.jpg",
+      },
+    ],
+  },
+  {
+    heading: "Distributed Systems",
+    books: [
+      {
+        title: "Designing Data-Intensive Applications",
+        author: "Martin Kleppmann",
+        cover: "/images/books/designing-data-intensive-applications.jpg",
+      },
+    ],
+  },
+  {
+    heading: "Operating Systems",
+    books: [
+      {
+        title: "Operating Systems: Three Easy Pieces",
+        author: "Remzi H. & Andrea C. Arpaci-Dusseau",
+        cover: "/images/books/ostep.jpg",
+      },
+    ],
+  },
+];
 ---
 
 <Layout title="Books — Chan Nirak Choun" currentPage="books">
@@ -16,27 +74,72 @@ import Layout from '../layouts/Layout.astro';
     approach problems in my work.
   </p>
 
-  <h2>Data Structures & Algorithms</h2>
-
-  <div class="book-entry">
-    <span class="book-title">Placeholder Book Title</span>
-    <div class="book-cover-placeholder">img</div>
-  </div>
-
-  <!--
-    Add more topic sections and books as needed, e.g.:
-
-  <h2>Operating Systems</h2>
-  <h2>Computer Architecture</h2>
-  <h2>Compilers</h2>
-  <h2>Mathematics for CS</h2>
-  <h2>Machine Learning</h2>
-
-  For each book entry with a real cover image:
-  <div class="book-entry">
-    <span class="book-title">Book Title Here</span>
-    <img src="/images/books/cover.jpg" alt="Book Title" class="book-cover" />
-  </div>
-  -->
+  {categories.map(({ heading, books }) => (
+    <>
+      <h2>{heading}</h2>
+      {books.map(({ title, author, cover }) => (
+        <div class="book-entry">
+          <div class="book-info">
+            <span class="book-title">{title}</span>
+            <span class="book-author">{author}</span>
+          </div>
+          <img src={cover} alt={title} class="book-cover" />
+        </div>
+      ))}
+    </>
+  ))}
 
 </Layout>
+
+<style>
+  .book-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.6rem 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+  }
+
+  .book-title {
+    font-size: 0.925rem;
+    color: var(--text);
+  }
+
+  .book-author {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  /* Fixed-width column so all covers align on the right */
+  .book-cover {
+    width: 48px;
+    height: 64px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .book-title {
+      font-size: 0.875rem;
+    }
+
+    .book-author {
+      font-size: 0.75rem;
+    }
+
+    .book-cover {
+      width: 40px;
+      height: 54px;
+    }
+  }
+</style>

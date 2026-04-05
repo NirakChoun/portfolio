@@ -306,44 +306,6 @@ p {
   color: var(--bg);
 }
 
-/* ---- Book / Course Entry ---- */
-
-.book-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-  padding: 0.5rem 0;
-}
-
-.book-entry .book-title {
-  font-size: 0.925rem;
-  color: var(--text-secondary);
-}
-
-.book-entry .book-cover {
-  width: 40px;
-  height: 56px;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.book-entry .book-cover-placeholder {
-  width: 40px;
-  height: 56px;
-  border: 1px dashed var(--border);
-  border-radius: 2px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.6rem;
-  color: var(--border);
-}
-
 /* ---- Publication ---- */
 
 .publication {
@@ -511,21 +473,6 @@ footer {
   .publication {
     font-size: 0.85rem;
     padding-left: 0.75rem;
-  }
-
-  /* Books */
-  .book-entry {
-    padding: 0.35rem 0;
-  }
-
-  .book-entry .book-title {
-    font-size: 0.85rem;
-  }
-
-  .book-entry .book-cover,
-  .book-entry .book-cover-placeholder {
-    width: 34px;
-    height: 48px;
   }
 
   /* Footer */
