@@ -41,7 +41,6 @@ import Layout from '../layouts/Layout.astro';
       id="contact-form"
       action="https://formspree.io/f/xwvwwndn"
       method="POST"
-      novalidate
     >
       <!-- Honeypot — hidden from real users, catches bots -->
       <div style="position: absolute; left: -9999px;" aria-hidden="true">
@@ -252,94 +251,96 @@ import Layout from '../layouts/Layout.astro';
     "crazymailing.com","tempmailo.com","emailfake.com","tempemails.io"
   ]);
 
-  function isDisposableEmail(email) {
+  function isDisposableEmail(email: string) {
     const domain = email.split("@")[1]?.toLowerCase();
     if (!domain) return false;
     return DISPOSABLE_DOMAINS.has(domain);
   }
 
-  function isValidEmailFormat(email) {
+  function isValidEmailFormat(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
   }
 
-  const form = document.getElementById("contact-form");
-  const emailInput = document.getElementById("email");
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const emailInput = document.getElementById("email") as HTMLInputElement | null;
   const emailError = document.getElementById("email-error");
-  const submitBtn = document.getElementById("submit-btn");
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement | null;
   const formStatus = document.getElementById("form-status");
 
-  emailInput.addEventListener("blur", () => {
-    validateEmail();
-  });
+  if (form && emailInput && emailError && submitBtn && formStatus) {
+    emailInput.addEventListener("blur", () => {
+      validateEmail();
+    });
 
-  emailInput.addEventListener("input", () => {
-    emailInput.classList.remove("input-error");
-    emailError.textContent = "";
-  });
-
-  function validateEmail() {
-    const email = emailInput.value.trim();
-    if (!email) {
+    emailInput.addEventListener("input", () => {
+      emailInput.classList.remove("input-error");
       emailError.textContent = "";
-      return false;
-    }
-    if (!isValidEmailFormat(email)) {
-      emailInput.classList.add("input-error");
-      emailError.textContent = "Please enter a valid email address.";
-      return false;
-    }
-    if (isDisposableEmail(email)) {
-      emailInput.classList.add("input-error");
-      emailError.textContent = "Disposable or temporary email addresses are not accepted.";
-      return false;
-    }
-    emailInput.classList.remove("input-error");
-    emailError.textContent = "";
-    return true;
-  }
+    });
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    if (!validateEmail()) {
-      emailInput.focus();
-      return;
-    }
-
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!firstName || !lastName || !emailInput.value.trim() || !message) {
-      formStatus.textContent = "Please fill in all required fields.";
-      formStatus.className = "form-status error";
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-    formStatus.textContent = "";
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" },
-      });
-
-      if (response.ok) {
-        formStatus.textContent = "Message sent! I'll get back to you soon.";
-        formStatus.className = "form-status success";
-        form.reset();
-      } else {
-        throw new Error("Submission failed");
+    function validateEmail() {
+      const email = emailInput!.value.trim();
+      if (!email) {
+        emailError!.textContent = "";
+        return false;
       }
-    } catch (err) {
-      formStatus.textContent = "Something went wrong. Please try emailing me directly.";
-      formStatus.className = "form-status error";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
+      if (!isValidEmailFormat(email)) {
+        emailInput!.classList.add("input-error");
+        emailError!.textContent = "Please enter a valid email address.";
+        return false;
+      }
+      if (isDisposableEmail(email)) {
+        emailInput!.classList.add("input-error");
+        emailError!.textContent = "Disposable or temporary email addresses are not accepted.";
+        return false;
+      }
+      emailInput!.classList.remove("input-error");
+      emailError!.textContent = "";
+      return true;
     }
-  });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!validateEmail()) {
+        emailInput.focus();
+        return;
+      }
+
+      const firstName = (document.getElementById("first-name") as HTMLInputElement)?.value.trim();
+      const lastName = (document.getElementById("last-name") as HTMLInputElement)?.value.trim();
+      const message = (document.getElementById("message") as HTMLTextAreaElement)?.value.trim();
+
+      if (!firstName || !lastName || !emailInput.value.trim() || !message) {
+        formStatus.textContent = "Please fill in all required fields.";
+        formStatus.className = "form-status error";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      formStatus.textContent = "";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" },
+        });
+
+        if (response.ok) {
+          formStatus.textContent = "Message sent! I'll get back to you soon.";
+          formStatus.className = "form-status success";
+          form.reset();
+        } else {
+          throw new Error("Submission failed");
+        }
+      } catch (err) {
+        formStatus.textContent = "Something went wrong. Please try emailing me directly.";
+        formStatus.className = "form-status error";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    });
+  }
 </script>
