@@ -1,4 +1,10 @@
 ---
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { ClientRouter } from 'astro:transitions';
+
 interface Props {
   title: string;
   currentPage?: string;
@@ -15,6 +21,7 @@ const { title, currentPage = '' } = Astro.props;
     <meta name="description" content="Chan Nirak Choun — MS Computer Science student and aspiring ML Compiler Engineer." />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body>
