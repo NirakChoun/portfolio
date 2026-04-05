@@ -226,13 +226,23 @@ p {
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  margin-bottom: 1.25rem;
+  margin: 0 auto 1.25rem;
   border: 3px solid var(--border);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  margin-bottom: 0.5rem;
 }
 
 .research-interests {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -324,23 +334,189 @@ footer {
 
 /* ---- Responsive ---- */
 
-@media (max-width: 600px) {
-  nav .nav-inner {
-    flex-direction: column;
-    height: auto;
-    padding: 0.75rem 1.5rem;
-    gap: 0.5rem;
-  }
-
-  nav .nav-links {
-    gap: 1.25rem;
-  }
-
-  .entry-header {
-    flex-direction: column;
+/* Tablet */
+@media (max-width: 768px) {
+  main {
+    padding: 2rem 1.25rem 4rem;
   }
 
   h1 {
     font-size: 1.5rem;
   }
+
+  h2 {
+    font-size: 1.05rem;
+    margin-top: 2rem;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+  nav {
+    position: sticky;
+    top: 0;
+  }
+
+  nav .nav-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 0.75rem 1rem;
+    gap: 0.4rem;
+  }
+
+  nav .nav-links {
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav .nav-links li {
+    flex: 0 0 auto;
+  }
+
+  nav .nav-links a {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  h3 {
+    font-size: 0.925rem;
+  }
+
+  .section-intro {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+
+  /* Profile */
+  .profile-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .research-interests {
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .research-interests span {
+    font-size: 0.725rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .resume-link {
+    font-size: 0.8rem;
+    padding: 0.45rem 1rem;
+  }
+
+  /* Entries */
+  .entry {
+    margin-bottom: 1.5rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .entry-meta {
+    font-size: 0.75rem;
+  }
+
+  .entry-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .entry ul li {
+    font-size: 0.835rem;
+    padding-left: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* Tags */
+  .tags {
+    gap: 0.3rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  /* Publications */
+  .publication {
+    font-size: 0.85rem;
+    padding-left: 0.75rem;
+  }
+
+  /* Books */
+  .book-entry {
+    padding: 0.35rem 0;
+  }
+
+  .book-entry .book-title {
+    font-size: 0.85rem;
+  }
+
+  .book-entry .book-cover,
+  .book-entry .book-cover-placeholder {
+    width: 34px;
+    height: 48px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  nav .nav-links a {
+    font-size: 0.725rem;
+    padding: 0.25rem 0.35rem;
+  }
+
+  main {
+    padding: 1.25rem 0.75rem 2.5rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .profile-photo {
+    width: 96px;
+    height: 96px;
+  }
+
+  .research-interests span {
+    font-size: 0.675rem;
+  }
+
+  .entry ul li {
+    font-size: 0.8rem;
+  }
+}
+
