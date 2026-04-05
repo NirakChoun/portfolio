@@ -1,0 +1,346 @@
+/* ============================================
+   Global Styles — Chan Nirak Choun Portfolio
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8f7f4;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --border: #e0ddd8;
+  --accent: #333;
+  --max-width: 720px;
+  --nav-height: 60px;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---- Navigation ---- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+nav .nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .nav-name {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  border: none;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+nav .nav-links a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  border: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+  color: var(--text);
+}
+
+/* ---- Main Content ---- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ---- Typography ---- */
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ---- Section Blocks ---- */
+
+.section-intro {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+
+/* ---- Entry (Education / Experience / Project) ---- */
+
+.entry {
+  margin-bottom: 1.75rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.entry-header h3 {
+  margin-bottom: 0;
+}
+
+.entry-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.entry-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.entry ul {
+  list-style: none;
+  padding: 0;
+}
+
+.entry ul li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+.entry ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}
+
+/* ---- Tags / Tools ---- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+/* ---- Profile (Home Page) ---- */
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--border);
+}
+
+.research-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.research-interests span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-secondary);
+}
+
+.resume-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.resume-link:hover {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+/* ---- Book / Course Entry ---- */
+
+.book-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.book-entry .book-title {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+}
+
+.book-entry .book-cover {
+  width: 40px;
+  height: 56px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.book-entry .book-cover-placeholder {
+  width: 40px;
+  height: 56px;
+  border: 1px dashed var(--border);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--border);
+}
+
+/* ---- Publication ---- */
+
+.publication {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+/* ---- Footer ---- */
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 600px) {
+  nav .nav-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 0.75rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  nav .nav-links {
+    gap: 1.25rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
