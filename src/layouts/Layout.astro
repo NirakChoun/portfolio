@@ -36,9 +36,6 @@ const { title, currentPage = '' } = Astro.props;
         <ul class="nav-links" id="nav-links">
           <li><a href="/" class={currentPage === 'home' ? 'active' : ''}>Home</a></li>
           <li><a href="/projects" class={currentPage === 'projects' ? 'active' : ''}>Projects</a></li>
-          <li><a href="/publications" class={currentPage === 'publications' ? 'active' : ''}>Publications</a></li>
-          <li><a href="/courses" class={currentPage === 'courses' ? 'active' : ''}>Courses</a></li>
-          <li><a href="/books" class={currentPage === 'books' ? 'active' : ''}>Books</a></li>
           <li><a href="/contact" class={currentPage === 'contact' ? 'active' : ''}>Contact</a></li>
         </ul>
       </div>

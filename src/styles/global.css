@@ -304,17 +304,6 @@ p {
   color: var(--bg);
 }
 
-/* ---- Publication ---- */
-
-.publication {
-  font-size: 0.925rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--border);
-}
-
 /* ---- Footer ---- */
 
 footer {
@@ -465,12 +454,6 @@ footer {
   .tag {
     font-size: 0.7rem;
     padding: 0.15rem 0.45rem;
-  }
-
-  /* Publications */
-  .publication {
-    font-size: 0.85rem;
-    padding-left: 0.75rem;
   }
 
   /* Footer */
