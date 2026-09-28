@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 
   <h1>Projects</h1>
 
-  <h2><a href="https://github.com/NirakChoun/KernelForge" target="_blank" rel="noopener noreferrer">KernelForge — GPU Kernel Optimization &amp; Performance Analysis</a></h2>
+  <h2 class="project-title"><a href="https://github.com/NirakChoun/KernelForge" target="_blank" rel="noopener noreferrer">KernelForge — GPU Kernel Optimization &amp; Performance Analysis</a></h2>
   <div class="entry">
     <div class="entry-subtitle">Sep 2026</div>
     <ul>
@@ -23,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
-  <h2><a href="https://github.com/NirakChoun/TensorForge" target="_blank" rel="noopener noreferrer">TensorForge — MLIR-Based Tensor Compiler for CPU &amp; GPU</a></h2>
+  <h2 class="project-title"><a href="https://github.com/NirakChoun/TensorForge" target="_blank" rel="noopener noreferrer">TensorForge — MLIR-Based Tensor Compiler for CPU &amp; GPU</a></h2>
   <div class="entry">
     <div class="entry-subtitle">Sep 2026</div>
     <ul>
@@ -40,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
-  <h2><a href="https://github.com/NirakChoun/ArchForge" target="_blank" rel="noopener noreferrer">ArchForge — gem5 Hardware-Software Co-Design Study</a></h2>
+  <h2 class="project-title"><a href="https://github.com/NirakChoun/ArchForge" target="_blank" rel="noopener noreferrer">ArchForge — gem5 Hardware-Software Co-Design Study</a></h2>
   <div class="entry">
     <div class="entry-subtitle">Sep 2026</div>
     <ul>
@@ -135,3 +135,13 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
 </Layout>
+
+<style>
+  .project-title {
+    border-bottom: none;
+  }
+
+  .project-title a {
+    border-bottom: none;
+  }
+</style>
