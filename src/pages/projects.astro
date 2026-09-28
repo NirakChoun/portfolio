@@ -6,24 +6,23 @@ import Layout from '../layouts/Layout.astro';
 
   <h1>Projects</h1>
 
-  <h2 class="project-title"><a href="https://github.com/NirakChoun/KernelForge" target="_blank" rel="noopener noreferrer">KernelForge — GPU Kernel Optimization &amp; Performance Analysis</a></h2>
+  <h2 class="project-title"><a href="https://github.com/NirakChoun/KernelForge" target="_blank" rel="noopener noreferrer">KernelForge — GPU Kernel Performance Analysis</a></h2>
   <div class="entry">
     <div class="entry-subtitle">Sep 2026</div>
     <ul>
-      <li>Optimized FP32 SGEMM through six CUDA kernel versions (coalescing, shared-memory tiling, 2D register blocking, vectorized loads) on an RTX PRO 6000 Blackwell, reaching 72% of cuBLAS.</li>
+      <li>Optimized FP32 SGEMM through six CUDA kernel versions (coalescing, shared-memory tiling, 2D register blocking, vectorized loads) on an NVIDIA RTX PRO 6000 Blackwell, reaching 72% of cuBLAS.</li>
       <li>Wrote memory-bound kernels (reduction, softmax, RMSNorm) in CUDA and Triton at 93–100% of measured DRAM bandwidth; the reduction matched NVIDIA CUB within 0.6%.</li>
-      <li>Compared autotuned Triton against hand-written CUDA through PTX/SASS analysis: Triton reached 93% of cuBLAS, but fell to 81% on shapes not divisible by 16 due to narrower loads and register spills.</li>
+      <li>Compared autotuned Triton with hand-written CUDA through PTX/SASS analysis: Triton reached 93% of cuBLAS but fell to 81% on shapes not divisible by 16, due to narrower loads and register spills.</li>
     </ul>
     <div class="tags">
       <span class="tag">CUDA C++</span>
       <span class="tag">Triton</span>
       <span class="tag">cuBLAS</span>
-      <span class="tag">Nsight Systems</span>
       <span class="tag">Slurm</span>
     </div>
   </div>
 
-  <h2 class="project-title"><a href="https://github.com/NirakChoun/TensorForge" target="_blank" rel="noopener noreferrer">TensorForge — MLIR-Based Tensor Compiler for CPU &amp; GPU</a></h2>
+  <h2 class="project-title"><a href="https://github.com/NirakChoun/TensorForge" target="_blank" rel="noopener noreferrer">TensorForge — MLIR Tensor Compiler for CPU and GPU</a></h2>
   <div class="entry">
     <div class="entry-subtitle">Sep 2026</div>
     <ul>
@@ -35,8 +34,7 @@ import Layout from '../layouts/Layout.astro';
       <span class="tag">MLIR/LLVM</span>
       <span class="tag">C++</span>
       <span class="tag">TableGen</span>
-      <span class="tag">PTX/SASS</span>
-      <span class="tag">Python</span>
+      <span class="tag">PTX</span>
     </div>
   </div>
 
@@ -52,7 +50,6 @@ import Layout from '../layouts/Layout.astro';
       <span class="tag">gem5</span>
       <span class="tag">C</span>
       <span class="tag">Python</span>
-      <span class="tag">x86 Assembly</span>
       <span class="tag">Slurm</span>
     </div>
   </div>
